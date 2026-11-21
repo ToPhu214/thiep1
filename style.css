@@ -1,0 +1,76 @@
+* { box-sizing: border-box; }
+:root {
+  --pink: #e86b91;
+  --deep: #9d3e61;
+  --soft: #fff0f4;
+  --ink: #684653;
+}
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden;
+  color: var(--ink); background: linear-gradient(145deg, #fff8fa, #ffeaf0 55%, #fff4f1);
+  font-family: 'Quicksand', sans-serif;
+}
+.ambient { position: fixed; border-radius: 50%; filter: blur(3px); opacity: .5; pointer-events: none; z-index: 0; }
+.ambient-one { width: 300px; height: 300px; background: #ffd3df; top: -100px; left: -100px; }
+.ambient-two { width: 360px; height: 360px; background: #ffe0d5; right: -140px; bottom: -150px; }
+#effects { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+main { position: relative; z-index: 1; }
+.intro { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 45px 20px; }
+.eyebrow { color: #d47794; font-size: .72rem; font-weight: 700; letter-spacing: .22em; }
+h1, h2 { font-family: 'Dancing Script', cursive; font-weight: 700; }
+h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); line-height: 1.08; color: #9d4c68; margin: 10px 0; }
+h1 span, h2 span { color: var(--pink); }
+.intro-note, .section-note { color: #9a7582; }
+.envelope-button { position: relative; width: 230px; height: 155px; border: 0; background: transparent; margin: 42px 0 18px; cursor: pointer; perspective: 800px; filter: drop-shadow(0 15px 15px #c66b872b); }
+.envelope-front { position: absolute; inset: 0; background: #f5a8bd; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); border-radius: 8px; }
+.envelope-front::before, .envelope-front::after { content: ""; position: absolute; inset: 0; }
+.envelope-front::before { background: #f8c1cf; clip-path: polygon(0 0, 50% 62%, 100% 0); }
+.envelope-front::after { background: #ed91ad; clip-path: polygon(0 100%, 50% 43%, 100% 100%); }
+.envelope-flap { position: absolute; inset: 0; z-index: 3; background: #f7b6c8; clip-path: polygon(0 0, 50% 62%, 100% 0); transform-origin: top; transition: transform .8s ease; }
+.envelope-letter { position: absolute; z-index: 1; width: 78%; height: 112px; left: 11%; bottom: 10px; background: #fffaf8; border-radius: 5px; transition: transform .8s ease; }
+.envelope-heart { position: absolute; z-index: 4; top: 56px; left: calc(50% - 13px); color: white; font-size: 27px; transition: opacity .3s; }
+.envelope-button.open .envelope-flap { transform: rotateX(180deg); z-index: 0; }
+.envelope-button.open .envelope-letter { transform: translateY(-95px); }
+.envelope-button.open .envelope-heart { opacity: 0; }
+.tap-hint { color: #b17d8f; font-size: .85rem; }
+.text-button, .replay-button { background: none; border: 0; color: #b65b7a; cursor: pointer; padding: 10px; font: inherit; }
+.hidden { display: none !important; }
+.letter-section { max-width: 1000px; margin: 0 auto; padding: 70px 20px 40px; animation: appear 1s ease both; }
+.letter-card { position: relative; max-width: 690px; margin: 0 auto 100px; padding: clamp(28px, 6vw, 58px); background: #fffdfb; border: 1px solid #f7dce4; border-radius: 8px 8px 28px 8px; box-shadow: 0 22px 65px #a94b6b1c; text-align: center; }
+.letter-card::before { content: ""; position: absolute; inset: 12px; border: 1px dashed #f1c6d3; border-radius: 5px 5px 22px 5px; pointer-events: none; }
+.big-heart { font-size: 2.5rem; color: #ee8eaa; margin: 15px 0; animation: heartbeat 1.7s infinite; }
+.letter-card h2 { color: #a44c6b; font-size: 2.6rem; margin: 8px 0 22px; }
+.message { position: relative; z-index: 1; max-width: 520px; margin: auto; text-align: left; font-size: 1rem; line-height: 1.95; }
+.message p { opacity: 0; transform: translateY(12px); transition: opacity .8s, transform .8s; }
+.message p.show { opacity: 1; transform: translateY(0); }
+.signature { text-align: right; color: #c45d80; font-weight: 700; }
+.signature span { font-size: 1.5rem; }
+.letter-footer { margin-top: 28px; color: #c28b9e; font-family: 'Dancing Script', cursive; font-size: 1.4rem; }
+.sparkle { position: absolute; color: #ed9bb3; font-size: 2rem; }
+.sparkle-a { top: 35px; left: 35px; }.sparkle-b { right: 35px; bottom: 35px; }
+.memories { text-align: center; margin: 0 auto 100px; }
+.memories h2, .ending h2 { color: #9d4c68; font-size: clamp(2.4rem, 5vw, 3.7rem); margin: 8px 0; }
+.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 38px 0 18px; }
+.photo-card { margin: 0; padding: 10px 10px 17px; background: white; box-shadow: 0 12px 35px #a94b6b1b; transform: rotate(-2deg); transition: transform .3s; }
+.photo-card:nth-child(2) { transform: rotate(2deg) translateY(16px); }.photo-card:nth-child(3) { transform: rotate(-1deg); }
+.photo-card:hover { transform: translateY(-8px) rotate(0); }
+.photo-card img { display: block; width: 100%; height: 230px; object-fit: cover; }
+.photo-card figcaption { font-family: 'Dancing Script', cursive; font-size: 1.45rem; color: #a65370; padding-top: 12px; }
+.photo-tip { font-size: .8rem; color: #ae8b97; }
+.ending { text-align: center; padding: 30px 15px 90px; }
+.ending-heart { font-size: 3.5rem; color: #e982a2; animation: heartbeat 1.7s infinite; }
+.ending p { color: #a17c89; }
+.from { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #b85d7b !important; }
+.music-button { display: block; margin: 25px auto 5px; border: 1px solid #e8a2b7; border-radius: 30px; padding: 12px 22px; background: #fff7f9; color: #ad5271; font: inherit; cursor: pointer; }
+.replay-button { margin-top: 8px; }
+@keyframes appear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.14); } 30% { transform: scale(1); } 45% { transform: scale(1.09); } }
+@media (max-width: 700px) {
+  .photo-grid { grid-template-columns: 1fr; max-width: 390px; margin: 30px auto; gap: 25px; }
+  .photo-card, .photo-card:nth-child(2), .photo-card:nth-child(3) { transform: rotate(-1deg); }
+  .photo-card img { height: 260px; }
+  .letter-section { padding-top: 35px; }
+  .letter-card { margin-bottom: 70px; }
+  .sparkle-a { left: 20px; }.sparkle-b { right: 20px; }
+}

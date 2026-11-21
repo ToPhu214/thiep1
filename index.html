@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f4">
+  <title>Một điều muốn gửi đến em 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <canvas id="effects" aria-hidden="true"></canvas>
+
+  <main>
+    <section class="intro" id="intro">
+      <p class="eyebrow">GỬI ĐẾN NGƯỜI ĐẶC BIỆT</p>
+      <h1>Có một điều nhỏ xinh<br>muốn gửi đến <span id="introName">em</span>...</h1>
+      <p class="intro-note">Một chiếc thiệp nhỏ, chứa thật nhiều yêu thương.</p>
+
+      <button class="envelope-button" id="openEnvelope" aria-label="Mở phong bì">
+        <span class="envelope-heart">♥</span>
+        <span class="envelope-letter"></span>
+        <span class="envelope-flap"></span>
+        <span class="envelope-front"></span>
+      </button>
+      <p class="tap-hint">Chạm vào phong bì để mở nhé</p>
+      <button class="text-button" id="skipIntro">Mở lời nhắn ngay →</button>
+    </section>
+
+    <section class="letter-section hidden" id="letterSection">
+      <div class="letter-card">
+        <div class="sparkle sparkle-a">✦</div>
+        <div class="sparkle sparkle-b">✧</div>
+        <p class="eyebrow">A LITTLE NOTE FOR YOU</p>
+        <div class="big-heart">♥</div>
+        <h2>Gửi <span id="letterName">emmm</span> dấu iuuu</h2>
+        <div class="message" id="message">
+          <p>Chúc mừng eiuu này kỷ niêm 5 năm 5 tháng nhéeee </p>
+          <p>Chúc choaa anh dới emmm sẽ iuu thưn nhauu thiệt lâu hơn nữa. Chúc choaa emm luôn duii cười và thẹc hạnh phúcccc.</p>
+          <p>Mong em sẽ luôn duii dẻ và bình tĩnh mỗi khi anhh làm emm bùn. Anh hong mún làm emm bùn dới giận đâu nhưng đôi khi nó lại xảy ree ngoài dự tính nên mong eiuu bỏ qua choaa anhh nhé.</p>
+          <p class="signature">Thưn emm lắm éhhhh <span>♡</span></p>
+        </div>
+        <div class="letter-footer">Made with love, just for you</div>
+      </div>
+
+      <section class="memories" id="memories">
+        <p class="eyebrow">OUR LITTLE UNIVERSE</p>
+        <h2>Những khoảnh khắc <span>đáng yêu</span></h2>
+        <p class="section-note">Một vài kỷ niệm mà mình muốn giữ thật lâu.</p>
+        <div class="photo-grid">
+          <figure class="photo-card photo-one">
+            <img src="assets/anh1.JPG" alt="Kỷ niệm">
+          </figure>
+          <figure class="photo-card photo-two">
+            <img src="assets/anh2.JPG" alt="Kỷ niệm">
+          </figure>
+          <figure class="photo-card photo-three">
+            <img src="assets/anh3.JPG" alt="Kỷ niệm">
+          </figure>
+        </div>
+      </section>
+
+      <section class="ending">
+        <div class="ending-heart">♡</div>
+        <h2>Thưn emm nhìu lắm lunnn<br><span>Mãi iuuuu</span></h2>
+        <p class="from">— Love you vô cùnggg—</p>
+        <button class="music-button" id="musicToggle">♫ Bật nhạc nền</button>
+        <button class="replay-button" id="replay">Đọc lại từ đầu ↻</button>
+      </section>
+    </section>
+  </main>
+
+  <audio id="bgMusic" loop preload="none">
+    <!-- Thay music.mp3 bằng file nhạc của bạn trong thư mục assets -->
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+  <script src="script.js"></script>
+</body>
+</html>
